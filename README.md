@@ -12,9 +12,9 @@ A student productivity dashboard to manage projects, notes, reminders, and weekl
 - Clean dashboard UI
 
 Tech Stack:-
-HTML  
-CSS  
-JavaScript  
+- HTML  
+- CSS  
+-JavaScript  
 
 Screenshots
 
