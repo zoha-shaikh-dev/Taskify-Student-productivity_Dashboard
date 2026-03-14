@@ -14,7 +14,7 @@ A student productivity dashboard to manage projects, notes, reminders, and weekl
 Tech Stack:-
 - HTML  
 - CSS  
--JavaScript  
+- JavaScript  
 
 Screenshots
 
