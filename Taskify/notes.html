@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <link rel="stylesheet" href="notes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+</head>
+<body>
+    <!--header section starts-->
+     <div class="navbar">
+        <a href="index.html">Home</a>
+        <!-- <a href="task.html"> Task</a> -->
+        <a href="notes.html">Notes</a>
+        <!-- <a href="art">Progress</a> -->
+
+       <span class="logo"> Taskify </span>
+     
+       <div class="icons">
+        <a href="#" class="fas fa-bell"></a>
+        <a href="#" class="fas far fa-user"></a>
+       </div>
+       </div>
+    </nav>
+       <!--header section ends-->
+        
+      <!-- notes folder section starts -->
+       <div class="content">
+          <h4><span>Notes</span> - Your Ideas Deserve a Place to Live </h4>
+            <p> Notes First, Netflix Later</p>
+            </div>
+
+         <div class="container" id="folderContainer">
+    <div class="btn-add" id="addBtn">
+        <span>+ Add Folder</span>
+    </div>
+</div>
+
+<div id="noteOverlay" class="overlay">
+    <div class="note-box">
+        <h2 id="folderTitle"></h2>
+        <textarea id="textBox" placeholder="Write your ideas here..."></textarea>
+        <button id="saveBtn">Save & Close</button>
+    </div>
+</div>
+
+
+      <!-- notes folder section ends -->
+      
+
+
+
+</body>
+ <script>
+  const addBtn = document.getElementById('addBtn');
+const folderContainer = document.getElementById('folderContainer');
+const noteOverlay = document.getElementById('noteOverlay');
+const textBox = document.getElementById('textBox');
+const folderTitle = document.getElementById('folderTitle');
+let activeFolder = "";
+
+// 1. Function to build each folder
+function makeFolder(name) {
+    const div = document.createElement('div');
+    div.className = 'folder';
+    
+    // Injected the Delete Button and Folder Name
+    div.innerHTML = `
+        <div class="del-btn">×</div>
+        <span>${name}</span>
+    `;
+    
+    // --- Logic to OPEN the folder ---
+    div.onclick = (e) => {
+        // Only open if the user DIDN'T click the 'x'
+        if (e.target.className !== 'del-btn') {
+            activeFolder = name;
+            folderTitle.innerText = "Notes: " + name;
+            textBox.value = localStorage.getItem('data_' + name) || "";
+            noteOverlay.style.display = "flex"; // Show the pretty overlay
+        }
+    };
+
+    // --- Logic to DELETE the folder ---
+    const delBtn = div.querySelector('.del-btn');
+    delBtn.onclick = (e) => {
+        e.stopPropagation(); // Stop the folder from opening
+        
+        if (confirm(`Delete "${name}" and all its notes?`)) {
+            div.remove(); // Remove from screen
+            
+            // Remove from the folder list in memory
+            let list = JSON.parse(localStorage.getItem('folderList') || "[]");
+            list = list.filter(item => item !== name);
+            localStorage.setItem('folderList', JSON.stringify(list));
+            
+            // Delete the actual notes for this folder
+            localStorage.removeItem('data_' + name);
+        }
+    };
+
+    // Put new folder before the 'Add' button
+    folderContainer.insertBefore(div, addBtn);
+}
+
+// 2. Click logic for the '+ Add Folder' button
+addBtn.onclick = () => {
+    const name = prompt("Name your folder:");
+    if (name && name.trim() !== "") {
+        makeFolder(name);
+        
+        // Save new folder name to LocalStorage
+        let list = JSON.parse(localStorage.getItem('folderList') || "[]");
+        list.push(name);
+        localStorage.setItem('folderList', JSON.stringify(list));
+    }
+};
+
+// 3. Logic for the 'Save & Close' button
+document.getElementById('saveBtn').onclick = () => {
+    localStorage.setItem('data_' + activeFolder, textBox.value);
+    noteOverlay.style.display = "none";
+};
+
+// 4. Load all folders when the page opens
+window.onload = () => {
+    let list = JSON.parse(localStorage.getItem('folderList') || "[]");
+    list.forEach(name => makeFolder(name));
+    
+    // Make sure overlay is hidden on start
+    noteOverlay.style.display = "none";
+};
+ </script>
+   
+
+</html>

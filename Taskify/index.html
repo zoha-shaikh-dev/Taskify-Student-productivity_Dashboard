@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskify</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+     
+</head>
+<body>
+   
+
+     <!--header section starts-->
+     <div class="navbar">
+        <a href="index.html">Home</a>
+        <!-- <a href="task.html"> Task</a> -->
+        <a href="notes.html">Notes</a>
+        <!-- <a href="art">Progress</a> -->
+
+       <span class="logo"> Taskify </span>
+     
+       <div class="icons">
+        <a href="#" class="fas fa-bell"></a>
+        <a href="#" class="fas far fa-user"></a>
+       </div>
+       </div>
+    </nav>
+       <!--header section ends-->
+       
+       
+     <!-- home section starts -->
+      <section class="home"> 
+          <div class="content">
+          <h4><span>Taskify</span> - Your Productivity Hub </h4>
+            <p> Simple tools to keep you Focused everyday.</p>
+            </div>
+                <div class="projects">
+            <div class="totalproject">
+                <h2> Total Project </h2>
+                <p id="projectcount">0</p>
+                <span>increased from last month  </span>
+                <input type="number" id="projectinput" placeholder="        Enter Projects"><br>
+                <button id="updateproject"> Update Project</button>
+            </div>
+
+            
+
+             <div class="endproject">
+                <h2> Ended projects </h2>
+                <p id="endprojectcount">0</p>
+                <span > On track with deadlines </span>
+                <input type="number" id="endprojectinput" placeholder="        Update Project"><br>
+            </div>
+
+            <div class="activestreak">
+                <h2> Active Streak </h2>
+                <p>7 Days</p>
+                <span > Keep the momentum going </span>
+            </div>
+            
+              <div class="chart-bar">
+                <p> Project Completion</p>
+                <div class="bar" id="completionBar" >0%</div>
+                <p id="motivationtext"></p>
+              </div>
+
+              <div class="deadlines">
+                 <h2> Upcoming Deadlines</h2>
+                <p id="deadline1"> 3 Due this week</p>
+                <p id="deadline2"> 1 Due tomorrow</p> 
+                <span> "Dont miss your Priorities"</span>
+                <input type="text" id="deadlines" placeholder=" Update your deadlines  "><br>
+              </div>
+            </div>
+        </section> 
+        <!-- home section ends--> 
+         
+        <!-- detailed section starts-->
+            <div class="row">
+           <section class="schedule">
+                <fieldset>
+                    <legend>This Week's Timetable</legend>
+                    <table>
+                        <tr>
+                        <th>Hour</th>
+                        
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                        <th>Saturday</th>
+                          </tr>
+
+                          <tr>
+                           <td> 09:00 - 10:00</td>
+                           <td> Computer Networks</td>
+                           <td>Operating System</td> 
+                           <td> DBMS prac</td>
+                           <td>Python</td>
+                           <td> Data Structure</td>
+                           <td> CC</td>
+                          </tr>
+
+                          <tr>
+                             <td> 10:00 - 11:00</td>
+                             <td> DS Prac</td>
+                             <td> Data Structure</td> 
+                             <td> Digital Marketing</td>
+                             <td> DBMS</td>
+                             <td> </td>
+                             <td> </td>
+                          </tr>
+
+                          <tr>
+                            <td> 11:00 - 11:30</td>
+                            <td colspan="6" style="text-align: center;">BREAK</td>
+                           
+                          </tr>
+
+                          <tr>
+                            <td> 11:30 - 12:30</td>
+                             <td> CN Prac</td>
+                             <td> Python</td> 
+                             <td> LONG BREAK</td>
+                             <td> CC</td>
+                             <td> CN Prac</td>
+                             <td> Operating System</td>
+                          </tr>
+                    </table>
+                </fieldset>
+                </section>
+                     
+                <div class="picture">
+                  <img src="images/book.jpeg" alt="photo">
+                  <!-- <input type="number" id="projectinput" placeholder="        Enter Projects"><br>
+                <button id="updateproject"> Update Project</button> -->
+                </div>
+
+                <div class="reminder">
+                  <h2>Quick reminder</h2>
+                  <p id="reminder1">Revise CN before Lab</p>
+                  <p id="reminder2">Bring Pendrive tomorrow</p>
+                    <p>Python project</p>
+                    <input type="text" id="reminder" placeholder=" Update your reminder "><br>
+                </div>
+                </div>
+          <!-- detailed section ends-->
+    
+     
+</body>
+
+
+<script>
+  // completion-bar js
+function updateCompletion() {
+  let total = Number(document.getElementById("projectcount").innerText);
+  let end = Number(document.getElementById("endprojectcount").innerText);
+  let bar = document.getElementById("completionBar");
+  let msg = document.getElementById("motivationtext");
+
+  let percent = 0;
+
+  if (total > 0) {
+    percent = Math.round((end / total) * 100);
+  }
+
+  bar.style.width = percent + "%";
+  bar.innerText = percent + "%";
+
+  // let msg = document.getElementById("motivationtext");
+   if (percent === 0){
+    msg.innerText = "";
+  }
+   else if (percent >=60){
+    msg.innerText = "Slayy Girl! Productivity on Top 😉 ";
+  }
+  else{
+    msg.innerText = " Looks like we are just Vibing today 🙂‍↔️ but we are COOKED💀";
+  }
+
+}
+
+// total project js
+let input = document.getElementById("projectinput");
+let button = document.getElementById("updateproject");
+let count = document.getElementById("projectcount");
+
+button.addEventListener("click", function () {
+  if (input.value !== "") {
+    count.innerText = input.value;
+    input.value = "";
+    updateCompletion();
+  }
+});
+
+// end project js
+let endinput = document.getElementById("endprojectinput");
+let endcount = document.getElementById("endprojectcount");
+
+endinput.addEventListener("keyup", function (event) {
+  if (event.key === "Enter" && endinput.value !== "") {
+    endcount.innerText = endinput.value;
+    endinput.value = "";
+    updateCompletion();
+  }
+});
+  
+  // deadlines js
+    let deadlineinput = document.getElementById("deadlines");
+let d1 = document.getElementById("deadline1");
+let d2 = document.getElementById("deadline2");
+
+deadlineinput.addEventListener("keydown", function(e) {
+  if (e.key === "Enter") {
+    let value = deadlineinput.value.trim();
+
+    if (value !== "") {
+      d2.innerText = d1.innerText; // move old to second line
+      d1.innerText = value;       // put new deadline on top
+      deadlineinput.value = "";
+    }
+  }
+});
+
+let reminderinput = document.getElementById("reminder");
+let r1 = document.getElementById("reminder1");
+let r2 = document.getElementById("reminder2");
+
+reminderinput.addEventListener("keydown", function(e) {
+  if (e.key === "Enter") {
+    let value = reminderinput.value.trim();
+
+    if (value !== "") {
+      r1.innerText = r1.innerText; // move old to second line
+      r1.innerText = value;       // put new deadline on top
+      deadlineinput.value = "";
+    }
+  }
+});
+
+
+    </script>
+
+
+</html>
+
+

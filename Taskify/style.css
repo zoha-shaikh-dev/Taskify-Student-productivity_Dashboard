@@ -1,0 +1,370 @@
+body{
+    background-color: rgb(246, 222, 226);
+    height: 100%;
+    margin: 0;
+}
+
+.navbar{
+  
+    align-items: center;
+    display: flex;
+    border: 2px;
+    /* box-shadow: 0 0 10px #64ffda; */
+    /* border-radius: 4px; */
+    padding: 3px;
+    background-color: rgba(0, 0, 0, 0.897);
+    list-style: none;
+}
+.navbar a{
+    text-decoration:none;
+    color: white;
+     padding: 9px; 
+    /* font-weight: bold; */
+    /* font-family: 'cinzel decorative',cursive; */
+
+     
+}
+
+.navbar a:hover{
+    color: rgb(244, 140, 175);
+}
+
+ .logo{
+    margin-left: auto;
+      font-weight: bolder; 
+     font-size: 23px;
+     color: pink;
+     letter-spacing: 1.1px;
+     padding: 10px 20px;
+     transition: all 0.3s ease;
+ }
+ .logo:hover{
+    color: #ff4da6;
+    text-shadow: 0 0 8px #ff4da6;
+ }
+
+ .icons a{
+    padding: 4px;
+ }
+
+ 
+ .home .content h4{
+      font-size: 32px;
+      font-weight: bold;
+      color: #000;
+      margin:2px;
+      padding: 2px;
+}
+
+.home .content p{
+    font-size: 16px;
+    color: #888;
+    margin: 3px;
+    padding: 3px;
+}
+
+.projects{
+    display: flex;
+    gap: 10px;
+}
+
+.home .totalproject{
+    background: linear-gradient(135deg, pink, palevioletred );
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 210px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    margin-left: 5px;
+}
+
+.home .totalproject h2{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.home .totalproject p{
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0;
+}
+
+ .home .totalproject span{
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 14px;
+ }
+
+ .home .totalproject  #projectinput{
+   border: 2px solid  black;
+   border-radius: 10px;
+   width: 144px;
+   height: 30px;
+   margin-left: 24px;
+   margin-bottom: 4px;
+   margin-top: 13px;
+ }
+
+ .home .totalproject #projectinput:hover{
+      background-color:  #fcbddd;
+ }
+
+ .home .totalproject  #updateproject{
+   border: 2px solid black ;
+   border-radius: 10px;
+   width: 150px;
+   height: 35px;
+   margin-left: 24px;
+   margin-bottom: 4px;
+   cursor:grab;
+ }
+
+ .home .totalproject #updateproject:hover{
+      background-color: #fcbddd;
+ }
+
+
+ .home .endproject{
+    background: white;
+    color: black;
+    padding: 20px;
+    border: 2px solid pink;
+    border-radius: 15px;
+    width: 210px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    
+}
+
+.home .endproject h2{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.home .endproject p{
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0;
+}
+
+ .home .endproject span{
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 14px;
+    color: palevioletred;
+ }
+
+ .home .endproject  #endprojectinput{
+   border: 2px solid  black;
+   border-radius: 10px;
+   width: 144px;
+   height: 30px;
+   margin-left: 28px;
+   margin-top: 15px;
+ }
+
+ .home .endproject #endprojectinput:hover{
+      background-color: #fcbddd;
+ }
+
+ .home .activestreak{
+    background: black;
+    color: white;
+    padding: 20px;
+    border: 2px solid rgb(103, 101, 101);
+    border-radius: 15px;
+    width: 210px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    
+}
+
+.home .activestreak h2{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.home .activestreak p{
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0;
+}
+
+ .home .activestreak span{
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 14px;
+    color: rgb(154, 150, 150);
+ }
+  
+ .chart-bar{
+    border: 2px solid palevioletred;
+    width: 250px;
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: Arial, Helvetica, sans-serif;
+ }
+
+ .chart-bar p{
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-align: center;
+    color: #333;
+ }
+
+ .bar{
+    background: palevioletred;
+    height: 25px;
+    border-radius: 5px;
+    text-align: right;
+    color: white;
+    line-height: 25px;
+    padding-right: 5px;
+    font-weight: bold;
+    transition: width 0.5 ease;
+ }
+
+  .home .deadlines{
+    background:#fce7f3 ;
+    color: #be185d ;
+    padding: 18px;
+    border: 2px solid ;
+    border-radius: 15px;
+    width: 250px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+  }
+
+  .home .deadlines h2{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+
+  }
+
+.home .deadlines p{
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.home .deadlines span{
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 18px;
+    color: palevioletred;
+}
+
+.home .deadlines  #deadlines{
+   border: 2px solid  black;
+   border-radius: 10px;
+   width: 144px;
+   height: 30px;
+   margin-left: 50px;
+   margin-top: 25px;
+ }
+
+ .home .deadlines #deadlines:hover{
+      background-color: #fcbddd;
+ }
+
+  .schedule{
+    margin-top: 15px;
+   
+}
+
+ .schedule fieldset{
+    border: 2px solid palevioletred;
+    border-radius: 12px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+ .schedule legend{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: palevioletred;
+    padding: 0 10px;
+}
+
+  .schedule .table,td,th{
+    border: 1px solid black;
+}
+
+  .schedule th,
+  .schedule td{
+    border: 1px solid black;
+    padding: 7px;
+    text-align: center;
+    height: 30px;
+}
+
+.schedule th{
+    background: palevioletred;
+    color: white;
+    font-weight: bold;
+}
+
+  .schedule td{
+    white-space: nowrap;
+}
+
+tr:hover{
+    color: rgb(212, 79, 123);
+}
+
+.row{
+    display: flex;
+    gap: 15px;
+    
+    
+}
+
+.picture{
+   width: 270px;
+   height: 250px;
+   display: flex;
+   align-items: center;
+   border-radius: 12px;
+   overflow: hidden;
+   margin-top: 45px;
+  
+}
+
+.picture img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reminder{
+     background: linear-gradient(135deg, pink, palevioletred );
+     border-radius: 15px;
+     text-align: center;
+     width: 200px;
+     height: 240px;
+      margin-top: 70px;
+     
+}
+
+ .reminder  #reminder{
+   border: 2px solid  black;
+   border-radius: 10px;
+   width: 144px;
+   height: 30px;
+   margin-top: 25px;
+   margin-right: 0.5px;
+ }
+
+ .reminder #reminder:hover{
+      background-color: #fcbddd;
+ }
